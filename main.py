@@ -42,7 +42,7 @@ def respond(engine, prompt):
     print("\n" + "-" * 50)
 
     if not best:
-        print("Euonoia: I couldn't find a confident answer in the knowledge base.")
+        print("Euonoia: I am Sorry feed me more data to answer your question.")
         print("-" * 50 + "\n")
         return
 
@@ -69,18 +69,18 @@ def main():
         chunks, meta = loader.load_documents()
 
         if not chunks:
-            print("No documents found in the knowledge base.")
+            print("No documents found in my brain.")
             return
 
         engine.build_index(chunks, meta)
 
-    print("Euonoia is ready. Type your question below.\n")
+    print("I am ready my friend to answer your questions.\n")
 
     # --------------------------------------------------
     # CHAT LOOP
     # --------------------------------------------------
     while True:
-        prompt = input("Ask Euonoia: ").strip()
+        prompt = input("Euonoia: ").strip()
 
         # Exit
         if prompt.lower() in ["exit", "quit", "bye"]:

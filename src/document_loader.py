@@ -52,12 +52,10 @@ class DocumentLoader:
             if current_chunk:
                 chunks.append(current_chunk)
             
-            # --- THE OVERLAP FIX ---
-            # Instead of just subtracting overlap, we find the nearest 
-            # space to avoid starting a new chunk in the middle of a word.
+         
             raw_start = chunk_end - overlap
             if raw_start <= start:
-                start = chunk_end # No overlap possible, move forward
+                start = chunk_end 
             else:
                 # Find the first space AFTER the raw_start to align with a word
                 safe_start = text.find(' ', raw_start)
