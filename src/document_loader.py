@@ -5,29 +5,88 @@ class DocumentLoader:
     def __init__(self):
         self.doc_path = DOC_FOLDER
 
-    def split_text(self, text, chunk_size=300, overlap=50):
-        words = text.split()
-        return [" ".join(words[i:i+chunk_size]) for i in range(0, len(words), chunk_size - overlap)]
+    def recursive_split(self, text, chunk_size=500, overlap=100):
+        """
+        Splits text using a priority-based 'switch' logic.
+        Ensures no words are cut and structural integrity is maintained.
+        """
+        if len(text) <= chunk_size:
+            return [text]
+
+        chunks = []
+        start = 0
+        
+        while start < len(text):
+            # Define our search window
+            end = start + chunk_size
+            
+            if end >= len(text):
+                final_chunk = text[start:].strip()
+                if final_chunk: chunks.append(final_chunk)
+                break
+            
+            # --- THE SWITCH LOGIC ---
+            # Find potential breakpoints within the current window
+            p1 = text.rfind('\n\n', start, end) # Paragraph
+            p2 = text.rfind('\n', start, end)   # Line break
+            p3 = text.rfind('. ', start, end)   # Sentence end
+            p4 = text.rfind(' ', start, end)    # Space (Word boundary)
+
+            # We want to cut as close to the 'end' as possible, 
+            # but prioritize structure over length.
+            threshold = start + (chunk_size * 0.4)
+
+            if p1 > threshold:
+                chunk_end = p1
+            elif p2 > threshold:
+                chunk_end = p2
+            elif p3 > threshold:
+                chunk_end = p3 + 1 # Keep the period
+            elif p4 > start:
+                chunk_end = p4
+            else:
+                chunk_end = end # Emergency hard cut
+
+            # Extract the chunk
+            current_chunk = text[start:chunk_end].strip()
+            if current_chunk:
+                chunks.append(current_chunk)
+            
+            # --- THE OVERLAP FIX ---
+            # Instead of just subtracting overlap, we find the nearest 
+            # space to avoid starting a new chunk in the middle of a word.
+            raw_start = chunk_end - overlap
+            if raw_start <= start:
+                start = chunk_end # No overlap possible, move forward
+            else:
+                # Find the first space AFTER the raw_start to align with a word
+                safe_start = text.find(' ', raw_start)
+                if safe_start == -1 or safe_start >= chunk_end:
+                    start = chunk_end
+                else:
+                    start = safe_start + 1
+
+        return [c for c in chunks if len(c) > 15]
 
     def load_documents(self):
         all_chunks = []
         metadata = []
         
         if not os.path.exists(self.doc_path):
-            print(f"CRITICAL ERROR: Folder not found at {self.doc_path}")
+            print(f"Directory not found: {self.doc_path}")
             return [], []
 
-        for file in os.listdir(self.doc_path):
+        for file in sorted(os.listdir(self.doc_path)):
             if file.endswith(".txt") and file != GREETING_FILE:
                 path = os.path.join(self.doc_path, file)
                 try:
                     with open(path, "r", encoding="utf-8") as f:
                         text = f.read()
                     
-                    chunks = self.split_text(text)
-                    all_chunks.extend(chunks)
-                    metadata.extend([file] * len(chunks))
+                    file_chunks = self.recursive_split(text)
+                    all_chunks.extend(file_chunks)
+                    metadata.extend([file] * len(file_chunks))
                 except Exception as e:
-                    print(f"Skipping {file} due to error: {e}")
+                    print(f"Error reading {file}: {e}")
         
         return all_chunks, metadata
