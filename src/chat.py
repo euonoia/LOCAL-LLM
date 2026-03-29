@@ -1,7 +1,9 @@
 # src/chat_loop.py
+import os
+import shutil
 from src.terminal import clear_terminal, print_welcome
 from src.dataset import save_dataset, load_and_update_index
-from src.conversation import converse  # <-- handles predefined + FAISS responses
+from src.conversation import converse
 
 
 def chat_loop(engine, loader, doc_folder):
@@ -11,7 +13,7 @@ def chat_loop(engine, loader, doc_folder):
     - Human-computer conversation
     - Feeding new datasets into the engine
     - Clearing the terminal display
-    - Exiting the program
+    - Exiting the program (deletes datasets on 'bye')
     """
     print("I am ready my friend to answer your questions.\n")
 
@@ -27,6 +29,15 @@ def chat_loop(engine, loader, doc_folder):
         # -------------------
         if prompt.lower() in ["exit", "quit", "bye"]:
             print("\nEuonoia: Goodbye.\n")
+
+            # Delete all dataset files in doc_folder
+            if os.path.exists(doc_folder):
+                try:
+                    shutil.rmtree(doc_folder)
+                    print(f"Euonoia: All datasets in '{doc_folder}' have been deleted.")
+                except Exception as e:
+                    print(f"Euonoia: Failed to delete datasets: {e}")
+
             break
 
         # -------------------
@@ -63,7 +74,7 @@ def chat_loop(engine, loader, doc_folder):
         # -------------------
         # HUMAN-COMPUTER CONVERSATION
         # -------------------
-        response = converse(engine, prompt)  # uses predefined + FAISS (if question)
+        response = converse(engine, prompt)
         print("\n" + "-" * 50)
         print(f"Euonoia:\n{response}")
         print("-" * 50 + "\n")
