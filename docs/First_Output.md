@@ -18,13 +18,13 @@ The current architecture follows a linear pipeline from raw data to user query r
 
 ---
 
-## 🛠️ Requirements & Stack
+##  Requirements & Stack
 * **Data Source:** Local `.txt` files (Custom Training Set).
 * **Embedding Model:** Sentence-Transformers.
 * **Logic:** Python scripts for processing and search.
 * **Search Method:** Vector Similarity (Semantic Search).
 
-## 🧬 Technical Logic
+##  Technical Logic
 The system relies on the **Dot Product** to determine how "close" a user's question is to a specific piece of data:
 
 $$A \cdot B = \sum_{i=1}^{n} A_i B_i$$
