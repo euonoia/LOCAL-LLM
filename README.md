@@ -31,7 +31,7 @@ The primary engineering challenge was to achieve **sub-20-second AI responses** 
 euonoia/
 ├── main.py              # Application entry point
 ├── venv/                # Python Virtual Environment
-├── documents/           # Knowledge base (.txt files)
+├── documents/           # Knowledge base (.txt files) contains sensitive data i did not push it
 ├── data/storage/        # Persistent embeddings cache (.pkl)
 ├── src/
 │   ├── config.py        # System paths and model configurations
