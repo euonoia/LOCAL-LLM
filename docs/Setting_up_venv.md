@@ -36,4 +36,4 @@ Where:
 ##  Status
 The system is currently functional. After initial testing and parameter tweaking, it successfully retrieves relevant information from the provided local dataset based on the semantic meaning of the user's query but the data is a mess its generating a same sentences every words that i ask.
 
-![Initial project setup and architecture overview](images/first_setup.png)
+![](./images/first_setup.png?raw=true)
