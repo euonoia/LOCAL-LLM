@@ -1,10 +1,10 @@
-# Euonoia: Local RAG Intelligence Engine 🌿
+# Euonoia: Local RAG Intelligence Engine 
 
 **Tagline:** A lightweight, private knowledge base optimized for resource-constrained hardware (Dell Latitude E7450).
 
 ---
 
-## 📖 Overview
+##  Overview
 
 **Euonoia** is a local Retrieval-Augmented Generation (RAG) engine built to explore the fundamentals of Large Language Models (LLMs) and Machine Learning. 
 
@@ -15,7 +15,7 @@ The primary engineering challenge was to achieve **sub-20-second AI responses** 
 
 ---
 
-## 🛠️ Tech Stack
+##  Tech Stack
 
 * **OS:** Fedora Linux (Performance Optimized)
 * **LLM Orchestration:** Ollama (`gemma:2b`)
@@ -25,7 +25,7 @@ The primary engineering challenge was to achieve **sub-20-second AI responses** 
 
 ---
 
-## 📂 Project Structure
+##  Project Structure
 
 ```text
 euonoia/
