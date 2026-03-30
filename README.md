@@ -25,17 +25,20 @@ The primary engineering challenge was to achieve **sub-20-second AI responses** 
 
 ---
 
-##  Project Structure
+## Project Structure
 
 ```text
 euonoia/
 ├── main.py              # Application entry point
 ├── venv/                # Python Virtual Environment
 ├── documents/           # Knowledge base (.txt files)
+├── data/storage/        # Persistent embeddings cache (.pkl)
 ├── src/
+│   ├── config.py        # System paths and model configurations
 │   ├── chat.py          # Terminal UI and chat loop logic
 │   ├── conversation.py  # LLM streaming and Ollama integration
-│   ├── dataset.py       # Document processing and indexing
+│   ├── dataset.py       # Document indexing and storage logic
+│   ├── dataset_generator.py # Automated raw text to .txt conversion
 │   ├── engine.py        # FAISS vector search implementation
 │   └── terminal.py      # Terminal utility functions (clear/welcome)
 └── README.md            # Project documentation
