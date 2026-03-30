@@ -1,0 +1,180 @@
+Document: Comprehensive Guide to Corporate Capital Structure
+Subject: Corporate Finance
+Keywords: Debt-to-Equity Ratio, WACC, MM Theory, Capital Structure, Financial Risk, Leverage, Tax Shield
+
+--------------------------------------------------
+
+Definition: Capital Structure
+
+Capital Structure refers to the mix of debt, equity, and hybrid securities that a company uses to finance its operations.
+
+--------------------------------------------------
+
+Objective of Capital Structure
+
+The goal of financial management is to determine the Optimal Capital Structure — the point where the value of the firm is maximized while the Weighted Average Cost of Capital (WACC) is minimized.
+
+--------------------------------------------------
+
+Definition: Optimal Capital Structure
+
+Optimal Capital Structure is the ideal combination of debt and equity that maximizes firm value and minimizes the cost of capital.
+
+--------------------------------------------------
+
+Definition: Debt Financing
+
+Debt Financing refers to funds borrowed from external lenders that must be repaid with interest.
+
+Examples of debt financing:
+- Corporate bonds
+- Bank loans
+- Debentures
+- Credit facilities
+
+--------------------------------------------------
+
+Definition: Equity Financing
+
+Equity Financing refers to funds raised through ownership shares or retained earnings.
+
+Examples of equity financing:
+- Common stock
+- Preferred stock
+- Retained earnings
+- Additional paid-in capital
+
+--------------------------------------------------
+
+Formula: Debt-to-Equity Ratio
+
+Debt-to-Equity Ratio = Total Debt / Total Equity
+
+--------------------------------------------------
+
+Definition: Financial Leverage
+
+Financial Leverage refers to the use of debt financing to increase the potential return to shareholders.
+
+--------------------------------------------------
+
+Advantages of Debt Financing
+
+- Interest payments are tax-deductible
+- Lower cost compared to equity
+- No ownership dilution
+- Increases return on equity when profits are strong
+
+--------------------------------------------------
+
+Disadvantages of Debt Financing
+
+- Fixed repayment obligation
+- Higher financial risk
+- Risk of bankruptcy if cash flow becomes unstable
+- Increases pressure on company earnings
+
+--------------------------------------------------
+
+Advantages of Equity Financing
+
+- No mandatory repayment
+- Lower financial risk
+- Improves financial stability
+- Better long-term flexibility
+
+--------------------------------------------------
+
+Disadvantages of Equity Financing
+
+- Ownership dilution
+- Higher cost compared to debt
+- Shareholders require higher returns
+- Possible loss of control
+
+--------------------------------------------------
+
+Comparison: Debt Financing vs Equity Financing
+
+Debt Financing:
+- Lower cost of capital
+- Fixed repayment
+- Higher financial risk
+- No ownership dilution
+
+Equity Financing:
+- Higher cost of capital
+- No repayment obligation
+- Lower financial risk
+- Ownership dilution occurs
+
+--------------------------------------------------
+
+Definition: Weighted Average Cost of Capital (WACC)
+
+WACC represents the average cost a company pays for its financing from both debt and equity.
+
+--------------------------------------------------
+
+Definition: Tax Shield
+
+Tax Shield refers to the reduction in taxable income caused by interest payments on debt.
+
+--------------------------------------------------
+
+Theory: Modigliani-Miller (MM) Theory
+
+The Modigliani-Miller Theory states that in a perfect market, the value of a firm is independent of its capital structure.
+
+--------------------------------------------------
+
+MM Proposition I (No Taxes)
+
+The value of a leveraged firm is equal to the value of an unleveraged firm.
+
+VL = VU
+
+--------------------------------------------------
+
+MM Proposition II (With Corporate Taxes)
+
+The value of a leveraged firm increases because debt creates a tax shield.
+
+VL = VU + (Tax Rate × Debt)
+
+--------------------------------------------------
+
+Theory: Static Trade-Off Theory
+
+The optimal capital structure occurs when the tax benefits of debt are equal to the financial distress costs.
+
+--------------------------------------------------
+
+Theory: Pecking Order Theory
+
+Companies follow a financing hierarchy to reduce information asymmetry.
+
+Order of financing:
+1. Internal financing (retained earnings)
+2. External debt
+3. External equity
+
+--------------------------------------------------
+
+Factors Affecting Capital Structure
+
+- Business risk
+- Tax position
+- Financial flexibility
+- Growth opportunities
+- Industry norms
+
+--------------------------------------------------
+
+Definition: Financial Risk
+
+Financial Risk refers to the risk that a company may not be able to meet its debt obligations.
+
+--------------------------------------------------
+
+

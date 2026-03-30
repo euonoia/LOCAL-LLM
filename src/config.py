@@ -1,11 +1,12 @@
 import os
 
 # --- PATHS ---
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
 # Your specific path for documents
-DOC_FOLDER = "/mnt/HelloMaster/llm-project/documents"
+DOC_FOLDER = os.path.join(BASE_DIR, "documents")
 
 # Keep the cache relative to where you run the script
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CACHE_DIR = os.path.join(BASE_DIR, "data/storage")
 CACHE_PATH = os.path.join(CACHE_DIR, "embeddings_cache.pkl")
 
