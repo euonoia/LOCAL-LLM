@@ -36,4 +36,3 @@ Where:
 ##  Status
 The system is currently functional. After initial testing and parameter tweaking, it successfully retrieves relevant information from the provided local dataset based on the semantic meaning of the user's query but the data is a mess its generating a same sentences every words that i ask.
 
-<img src="images/first_setup.png" alt="Initial project setup" width="600">
