@@ -1,65 +1,65 @@
 from src.terminal import clear_terminal, print_welcome
 from src.dataset import save_dataset, load_and_update_index
-from src.conversation import converse  # <-- new import
+from src.conversation import converse 
 
 def chat_loop(engine, loader, doc_folder):
-    """
-    Main chat loop for Euonoia.
-    Handles:
-    - Human-computer conversation
-    - Feeding new datasets
-    - Clearing terminal
-    - Exiting program
-    """
-    print("I am ready my friend to answer your questions.\n")
+    print("I am ready, my friend, to answer your questions.\n")
 
     while True:
-        prompt = input("Euonoia: ").strip()
+        # 'You:' makes it feel like a real conversation
+        prompt = input("You: ").strip()
 
         if not prompt:
             continue
 
-        # -------------------
-        # EXIT PROGRAM
-        # -------------------
+        # --- EXIT ---
         if prompt.lower() in ["exit", "quit", "bye"]:
-            print("\nEuonoia: Goodbye.\n")
+            print("\nEuonoia: Goodbye! Have a beautiful day. \n")
             break
 
-        # -------------------
-        # CLEAR TERMINAL
-        # -------------------
+        # --- CLEAR ---
         if prompt.lower() == "clear":
             clear_terminal()
             print_welcome()
             continue
 
-        # -------------------
-        # FEED NEW DATA
-        # -------------------
+        # --- DATA INGESTION (FEED) ---
         if prompt.lower() == "feed":
-            print("Paste your text below. Finish with a blank line:")
+            print("\n" + "="*30)
+            print("PASTE MODE: Type 'DONE' on a new line to save.")
+            print("="*30)
             lines = []
             while True:
                 line = input()
-                if not line.strip():
+                if line.strip().upper() == "DONE":
                     break
                 lines.append(line)
+            
             new_text = "\n".join(lines)
             if not new_text.strip():
-                print("No text provided. Cancelled.\n")
+                print("No text detected. Operation cancelled.\n")
                 continue
 
+            # Visual feedback during indexing
+            print("Euonoia is indexing your data...", end="\r")
             filename = save_dataset(new_text, doc_folder)
             chunks_count = load_and_update_index(engine, loader)
-            print(f"Euonoia: New dataset '{filename}' added. Total chunks indexed: {chunks_count}\n")
+            print(f"Done! ✅ '{filename}' added. Total chunks: {chunks_count}\n")
             continue
 
-        # -------------------
-        # HUMAN-COMPUTER CONVERSATION
-        # -------------------
-        response = converse(engine, prompt)
+        print("Euonoia is thinking...", end="\r", flush=True)
+        
+        try:
+            response = converse(engine, prompt)
 
-        print("\n" + "-" * 50)
-        print(f"Euonoia:\n{response}")
-        print("-" * 50 + "\n")
+            # If 'converse' returns a string (Predefined Greetings/Hugs), print it here.
+            # If it used the LLM, it already printed the result and returned "".
+            if response and response.strip():
+                # Overwrite the 'thinking' line with a clean separator
+                print(" " * 30, end="\r") 
+                print("-" * 50)
+                print(f"Euonoia: {response}")
+                print("-" * 50 + "\n")
+        
+        except Exception as e:
+            print(f"\n[Error]: Something went wrong in the circuits: {e}")
